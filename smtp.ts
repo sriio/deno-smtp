@@ -32,7 +32,7 @@ export class SmtpClient {
     await this._connect(conn, config);
   }
 
-  async connectTLS(config: ConnectConfig) {
+  async connectTLS(config: ConnectConfig | ConnectConfigWithAuthentication) {
     const conn = await Deno.connectTls({
       hostname: config.hostname,
       port: config.port || 465,
